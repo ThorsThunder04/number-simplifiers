@@ -2,10 +2,12 @@
 def squareRoot(num, string=False):
 
     if (int(num**0.5) == float(num**0.5)): # returns the square root of the number if it is a simple root.
-        return int(num ** 0.5)
-    
-    tempDivided = num # will hold the number that will be devided multiple times.
-    # multCounts = [] # holds the numbers that are squarable
+        if (string): # can be returned as string
+            return str(int(num ** 0.5))
+        else:
+            return int(num ** 0.5)
+            
+    tempDivided = num # will hold the number that will be devided multiple times to find lowestRemainingRoot
     currentHighest = 1 # holds the highest square
     lowestRemainingRoot = 1
     simplifiable = None
@@ -29,4 +31,5 @@ def squareRoot(num, string=False):
         if (simplifiable):
             return currentHighest, lowestRemainingRoot
         else:
-            return [num] # if the returned type is list, then it means that it's the ireductable number, and not a number like sqrt(16) -> 4
+            return num ** 0.5 # will return a long decimal number. Trying to find a solution.
+
